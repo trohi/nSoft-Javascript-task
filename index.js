@@ -32,15 +32,14 @@ const summary = function(number){
         }
     });
 
+    // handling the case when passed number does not exist in matrix 
     if(!doesMatrixContainsNumber){
         console.log(`Given parameter does not exist in matrix, and total is ${number}`)
-        return 
-    } else {
-        console.log("Matrix contains given number")
+        return number
     }
 
     // pupulating the array that contains numbers that
-    // needs to be summed
+    // needs to be calculated
 
     if(matrix[indexOfContainingArray -1] && matrix[indexOfContainingArray +1]){
         surroundingElements.push(matrix[indexOfContainingArray - 1][indexOfPayload - 1])
@@ -69,16 +68,18 @@ const summary = function(number){
         surroundingElements.push(matrix[indexOfContainingArray][indexOfPayload + 1])
     }
 
+    // calculation of values of surrounding numbers 
     surroundingElements.forEach(matrixValue =>{
        if(matrixValue){
            sum += matrixValue
        }
     })
 
+    // adding passed number to previously calculated value
     sum += number
 
     console.log(`Total sum is: ${sum}`)
     return sum
 }
 
-summary(1000)
+summary(45)
